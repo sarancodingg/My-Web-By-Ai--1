@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forever With You 💕 | เว็บสื่อรัก & ขอเป็นแฟนสุดพิเศษ</title>
+  <meta name="description" content="เว็บไซต์สารภาพรักสุดโรแมนติก พร้อมลูกเล่นเปิดจดหมาย มาตรวัดความน่ารัก และปุ่มวิ่งหนีสุดกวน">
+  <meta name="theme-color" content="#38bdf8">
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="มีข้อความพิเศษอยากบอกขนมหวาน... 💌">
+  <meta property="og:description" content="เปิดดูสิ มีจดหมายและอะไรบางอย่างส่งมาถึงขนมหวาน 🩵">
+  <meta property="og:image" content="./assets/images/photo_flowers.jpg">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🩵</text></svg>">
+</head>
+<body>
+
+  <!-- Background Particle & Sparkle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <div class="app-container">
+    <!-- Navigation Bar -->
+    <header class="navbar" id="main-nav">
+      <a href="#" class="nav-brand">
+        <span class="brand-heart">🩵</span>
+        <span>Forever With You</span>
+      </a>
+
+      <div class="nav-actions">
+        <button id="btn-theme-toggle" class="btn-icon" title="เปลี่ยนเอฟเฟกต์ (ละอองฟ้า / หัวใจฟ้า)" aria-label="เปลี่ยนเอฟเฟกต์">
+          ☁️
+        </button>
+        <button id="btn-music-toggle" class="btn-icon" title="เปิด/ปิด เพลงกล่องดนตรีบรรเลง" aria-label="เปิดปิดเพลง">
+          🎵
+        </button>
+        <button id="btn-open-settings" class="btn-text-icon" title="ปรับแต่งชื่อและข้อความ" aria-label="ปรับแต่งข้อความ">
+          ⚙️ <span>ปรับแต่งเว็บนี้</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section: Love Letter Envelope -->
+      <section class="hero-section" id="hero-letter">
+        <div class="badge-tag">
+          <span>💌</span> จดหมายส่งตรงถึงขนมหวาน
+        </div>
+        <h1 class="hero-title">
+          มีข้อความจากใจ <span class="highlight">อยากบอกขนมหวาน...</span>
+        </h1>
+        <p class="hero-subtitle">
+          แตะที่ตราประทับรูปหัวใจเพื่อเปิดอ่านจดหมายลับฉบับนี้ดูสิ
+        </p>
+
+        <!-- 3D Interactive Envelope -->
+        <div class="envelope-wrapper" id="envelope-wrapper" tabindex="0" role="button" aria-label="แตะเพื่อเปิดจดหมาย">
+          <div class="envelope" id="envelope">
+            <div class="envelope-flap"></div>
+            <div class="wax-seal" id="wax-seal">
+              <span>🩵</span>
+              <span class="wax-seal-label">OPEN</span>
+            </div>
+            <div class="envelope-pocket"></div>
+
+            <!-- Letter Paper that slides out -->
+            <article class="letter-paper" id="letter-paper">
+              <div class="letter-header">
+                <div>
+                  <div class="letter-to" id="display-recipient">ถึง: ขนมหวาน 🩵</div>
+                  <div class="letter-date" id="display-date">วันที่แสนพิเศษ</div>
+                </div>
+                <div style="font-size: 1.8rem;">💌</div>
+              </div>
+              <p class="letter-body" id="display-letter-text">
+                ตั้งแต่มีขนมหวานเข้ามาในชีวิต โลกใบเดิมก็สดใสและมีความหมายขึ้นเยอะเลย ขอบคุณในทุกๆ รอยยิ้ม ความอบอุ่น และความน่ารักที่มอบให้กันเสมอมานะ
+
+                ทุกครั้งที่ได้คุยด้วย หรือแม้แต่เห็นข้อความของขนมหวาน มันทำให้วันธรรมดาๆ กลายเป็นวันที่ดีที่สุดได้เสมอเลย...
+              </p>
+              <div class="letter-sign">
+                Love you always,<br>
+                <span id="display-sender">จากเค้าเอง 🩵</span>
+              </div>
+              <div class="letter-close-hint">
+                (แตะที่ซองอีกครั้งเพื่อพับเก็บ)
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Polaroid Photo Gallery & Reasons -->
+      <section class="section" id="section-gallery">
+        <div class="section-header">
+          <div class="badge-tag">📸 Our Favorite Memories</div>
+          <h2 class="section-title">เหตุผลที่เค้าแพ้ทางขนมหวาน...</h2>
+          <p class="section-subtitle">ทุกๆ ช่วงเวลาที่มีขนมหวาน มันน่ารักและน่าจดจำเสมอ</p>
+        </div>
+
+        <div class="polaroid-grid">
+          <!-- Card 1: Flower Field -->
+          <div class="polaroid-card">
+            <div class="polaroid-pin"></div>
+            <div class="polaroid-img-wrapper">
+              <img src="./assets/images/photo_flowers.jpg" alt="ขนมหวานในทุ่งดอกไม้" class="polaroid-img" loading="lazy">
+            </div>
+            <div class="polaroid-content">
+              <div class="polaroid-caption">ทุ่งดอกไม้กับรอยยิ้มของเธอ 🌸✨</div>
+              <p class="polaroid-desc">ดอกไม้ทั้งทุ่งยังไม่สดใสและน่ารักเท่ารอยยิ้มของขนมหวานเลย</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Train / BTS Journey -->
+          <div class="polaroid-card">
+            <div class="polaroid-pin"></div>
+            <div class="polaroid-img-wrapper">
+              <img src="./assets/images/photo_bts.jpg" alt="ถ่ายรูปคู่กันบนรถไฟฟ้า" class="polaroid-img" loading="lazy">
+            </div>
+            <div class="polaroid-content">
+              <div class="polaroid-caption">ทุกการเดินทางที่มีเธอ 🚆🩵</div>
+              <p class="polaroid-desc">ไม่ว่าจะไปที่ไหน แค่มีขนมหวานไปด้วยกัน ก็เป็นช่วงเวลาที่ดีที่สุดเสมอ</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Head on Shoulder -->
+          <div class="polaroid-card">
+            <div class="polaroid-pin"></div>
+            <div class="polaroid-img-wrapper">
+              <img src="./assets/images/photo_shoulder.jpg" alt="ขนมหวานซบไหล่สุดน่ารัก" class="polaroid-img" loading="lazy">
+            </div>
+            <div class="polaroid-content">
+              <div class="polaroid-caption">ไหล่นี้มีไว้ให้ขนมหวานซบตลอดไปนะ 🥺🤍</div>
+              <p class="polaroid-desc">สัญญาว่าจะคอยเป็นที่พักพิง เป็นความสบายใจ และดูแลเธอให้ดีที่สุดเลย</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Cute-O-Meter & Flirty Fun Games -->
+      <section class="section" id="section-interactive">
+        <div class="section-header">
+          <div class="badge-tag">🎯 Flirty Zone</div>
+          <h2 class="section-title">เครื่องตรวจวัดความน่ารัก</h2>
+          <p class="section-subtitle">ระบบ AI ตรวจจับระดับความมีเสน่ห์ของขนมหวาน</p>
+        </div>
+
+        <!-- Meter -->
+        <div class="glass-card meter-card">
+          <div class="meter-display-title">
+            ระดับความน่ารักของ <span id="display-meter-name" style="color: var(--color-primary);">ขนมหวาน</span>
+          </div>
+
+          <div class="meter-percentage" id="meter-num">0%</div>
+
+          <div class="meter-track">
+            <div class="meter-fill" id="meter-bar"></div>
+          </div>
+
+          <div class="meter-comment" id="meter-text">
+            กดปุ่มด้านล่างเพื่อเริ่มการสแกนความน่ารัก...
+          </div>
+
+          <button id="btn-charge-meter" class="btn-meter-charge">
+            <span>⚡</span> วัดระดับความน่ารักเลย!
+          </button>
+        </div>
+
+        <!-- Days Counter Since Special Date -->
+        <div class="glass-card counter-wrapper">
+          <h3 style="font-size: 1.4rem; font-weight: 600; color: var(--color-text-main); margin-bottom: 8px;">
+            วันเวลาที่หัวใจดวงนี้มีเธอเข้ามา ⏳
+          </h3>
+          <p style="color: var(--color-text-muted); font-size: 0.95rem;" id="counter-start-label">
+            นับตั้งแต่วันที่ 15 พฤศจิกายน 2566 เวลา 21:00 น.
+          </p>
+
+          <div class="counter-grid">
+            <div class="counter-box">
+              <div class="counter-num" id="count-days">00</div>
+              <div class="counter-label">วัน</div>
+            </div>
+            <div class="counter-box">
+              <div class="counter-num" id="count-hours">00</div>
+              <div class="counter-label">ชั่วโมง</div>
+            </div>
+            <div class="counter-box">
+              <div class="counter-num" id="count-minutes">00</div>
+              <div class="counter-label">นาที</div>
+            </div>
+            <div class="counter-box">
+              <div class="counter-num" id="count-seconds">00</div>
+              <div class="counter-label">วินาที</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Romantic Pick-up Fortune Cards -->
+        <div style="margin-top: 50px; text-align: center;">
+          <h3 style="font-size: 1.4rem; font-weight: 600; color: var(--color-text-main); margin-bottom: 8px;">
+            เปิดการ์ดสุ่มความในใจ 🔮
+          </h3>
+          <p style="color: var(--color-text-muted); font-size: 0.95rem;">
+            แตะการ์ดแต่ละใบเพื่อดูว่าวันนี้มีข้อความหวานๆ อะไรซ่อนอยู่
+          </p>
+
+          <div class="fortune-cards-grid" id="fortune-container">
+            <!-- Cards will be dynamically populated/flipped via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: The Ultimate Question & Runaway Button -->
+      <section class="section confession-section" id="section-confession">
+        <div class="confession-box">
+          <div style="font-size: 3rem; margin-bottom: 10px;">💍</div>
+          <h2 class="confession-question" id="display-main-question">
+            อยู่ด้วยกันนานๆนะ 💖
+          </h2>
+          <p class="confession-subtext" id="display-sub-question">
+            ถ้าตกลง เค้าสัญญาว่าจะดูแลขนมหวานให้ดีที่สุดเลย... อย่ากดปุ่มปฏิเสธเลยนะ 🥺
+          </p>
+
+          <div class="button-arena" id="button-arena">
+            <button id="btn-confess-yes" class="btn-yes">
+              <span>🩵</span> <span id="display-yes-text">ตกลงเลยยย!</span>
+            </button>
+            <button id="btn-confess-no" class="btn-no">
+              <span id="display-no-text">ไม่เอาหรอกก 😜</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>สร้างด้วย <span class="heart-icon">🩵</span> เพื่อส่งต่อความรู้สึกดีๆ ให้กับขนมหวาน</p>
+      <p style="font-size: 0.8rem; margin-top: 6px; opacity: 0.8;">Made with Love & Modern Web Tech</p>
+    </footer>
+  </div>
+
+  <!-- Modal 1: Celebration & Official Love Certificate -->
+  <div class="modal-backdrop" id="modal-celebration" role="dialog" aria-modal="true" aria-labelledby="cert-title">
+    <div class="modal-card">
+      <button class="btn-close-modal" id="btn-close-celebration" aria-label="ปิดหน้าต่าง">✕</button>
+
+      <div class="certificate">
+        <div class="certificate-title" id="cert-title">🎉 OFFICIAL LOVE CERTIFICATE 🎉</div>
+        <div class="certificate-subtitle">ใบรับรองการเป็นแฟนอย่างเป็นทางการ</div>
+
+        <div style="font-size: 0.95rem; color: #334155;">
+          ขอมอบใบประกาศเกียรติคุณฉบับนี้เพื่อยืนยันว่า
+        </div>
+
+        <div class="certificate-names">
+          <span class="certificate-name" id="cert-receiver">ขนมหวาน</span>
+          <span style="font-size: 1.5rem; color: var(--color-primary);">🩵</span>
+          <span class="certificate-name" id="cert-sender">เค้าเอง</span>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #334155; line-height: 1.6; margin: 15px 0;">
+          ได้ตกลงปลงใจเป็นแฟนกันเรียบร้อยแล้วตั้งแต่วันนี้เป็นต้นไป<br>
+          มีสิทธิ์ได้รับการดูแล เอาใจใส่ และความรักแบบจัดเต็มตลอด 24 ชั่วโมง! 🥰
+        </p>
+
+        <div class="certificate-seal">
+          <span>🩵</span>
+        </div>
+        <div style="font-size: 0.8rem; color: #a47148; font-weight: 600; margin-top: 4px;" id="cert-date-text">
+          ออกให้ ณ วันที่ปัจจุบัน
+        </div>
+      </div>
+
+      <div class="form-actions" style="margin-top: 15px;">
+        <button id="btn-copy-sweet-message" class="btn-primary-action">
+          📋 คัดลอกข้อความบอกรักส่งให้เค้า
+        </button>
+        <button id="btn-share-line" class="btn-secondary-action">
+          💬 แชร์ผ่าน LINE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Settings & Customization Drawer -->
+  <div class="modal-backdrop" id="modal-settings" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+    <div class="modal-card">
+      <button class="btn-close-modal" id="btn-close-settings" aria-label="ปิดหน้าต่าง">✕</button>
+
+      <h2 id="settings-title" style="font-size: 1.5rem; color: var(--color-primary); margin-bottom: 10px;">
+        ⚙️ ปรับแต่งเว็บจีบของคุณ
+      </h2>
+      <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 20px;">
+        แก้ไขข้อมูลให้ตรงกับคนของคุณ แล้วกดสร้างลิงก์เพื่อส่งให้เค้าเปิดดูได้ทันที!
+      </p>
+
+      <form id="form-settings" onsubmit="return false;">
+        <div class="form-group">
+          <label class="form-label" for="input-recipient">ชื่อคนที่คุณชอบ / คนพิเศษ (Receiver)</label>
+          <input type="text" id="input-recipient" class="form-input" placeholder="เช่น น้องฟ้า, คุณคนพิเศษ" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="input-sender">ชื่อของคุณ (Sender)</label>
+          <input type="text" id="input-sender" class="form-input" placeholder="เช่น พี่ซัน, เค้าเอง" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="input-date">วันที่และเวลาเริ่มคุย / วันสำคัญ</label>
+          <input type="datetime-local" id="input-date" class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="input-question">คำถามสารภาพรัก</label>
+          <input type="text" id="input-question" class="form-input" placeholder="เช่น เป็นแฟนกันนะ? 💖, ไปเดตกันไหม?">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="input-letter">ข้อความในจดหมาย</label>
+          <textarea id="input-letter" class="form-textarea" rows="4" placeholder="พิมพ์ข้อความในใจที่คุณอยากบอกเค้า..."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="btn-save-settings" class="btn-primary-action">
+            💾 บันทึกการเปลี่ยนแปลง
+          </button>
+          <button type="button" id="btn-copy-share-url" class="btn-secondary-action">
+            🔗 คัดลอกลิงก์ส่งให้เธอ
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./js/audio.js"></script>
+  <script src="./js/particles.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
